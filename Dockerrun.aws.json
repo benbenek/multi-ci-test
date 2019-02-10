@@ -2,6 +2,13 @@
     "AWSEBDockerrunVersion": 2,
     "containerDefinitions": [
         {
+            "name": "client",
+            "image": "benbenek/multi-ci-client",
+            "hostname": "client",
+            "essential": false,
+            "memory": 128
+        },
+        {
             "name": "worker",
             "image": "benbenek/multi-ci-worker",
             "hostname": "worker",
