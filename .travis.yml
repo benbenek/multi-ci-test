@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t benbenek/react-test -f ./client/Dockerfile.dev .
+  - docker build -t benbenek/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run benbenek/react-test npm test -- --coverage
@@ -18,17 +18,3 @@ after_success:
  - docker push benebenek/multi-ci-nginx
  - docker push benebenek/multi-ci-server
  - docker push benebenek/multi-ci-worker
-
-deploy:
-  provider: elasticbeanstalk
-  region: "eu-central-1"
-  app: "ci-test"
-  env: "CiTest-env"
-  bucket_name: "elasticbeanstalk-eu-central-1-832952669290"
-  bucket_path: "ci-test"
-  on:
-    branch: master
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key:
-    secure: "$AWS_SECRET_KEY"
-
