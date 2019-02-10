@@ -18,3 +18,16 @@ after_success:
  - docker push benbenek/multi-ci-nginx
  - docker push benbenek/multi-ci-server
  - docker push benbenek/multi-ci-worker
+
+ deploy:
+  provider: elasticbeanstalk
+  region: "eu-central-1"
+  app: "multi-ci-test"
+  env: "MultiCiTest-env"
+  bucket_name: "elasticbeanstalk-eu-central-1-832952669290"
+  bucket_path: "multi-ci-test"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
