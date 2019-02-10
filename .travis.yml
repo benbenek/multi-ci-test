@@ -9,15 +9,15 @@ script:
   - docker run benbenek/react-test npm test -- --coverage
 
 after_success:
- - docker build -t benbenek/multi-ci-client ./client
- - docker build -t benbenek/multi-ci-nginx ./nginx
- - docker build -t benbenek/multi-ci-server ./server
- - docker build -t benbenek/multi-ci-worker ./worker
- - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
- - docker push benbenek/multi-ci-client
- - docker push benbenek/multi-ci-nginx
- - docker push benbenek/multi-ci-server
- - docker push benbenek/multi-ci-worker
+  - docker build -t benbenek/multi-ci-client ./client
+  - docker build -t benbenek/multi-ci-nginx ./nginx
+  - docker build -t benbenek/multi-ci-server ./server
+  - docker build -t benbenek/multi-ci-worker ./worker
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push benbenek/multi-ci-client
+  - docker push benbenek/multi-ci-nginx
+  - docker push benbenek/multi-ci-server
+  - docker push benbenek/multi-ci-worker
 
  deploy:
   provider: elasticbeanstalk
