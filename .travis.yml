@@ -19,7 +19,7 @@ after_success:
   - docker push benbenek/multi-ci-server
   - docker push benbenek/multi-ci-worker
 
- deploy:
+deploy:
   provider: elasticbeanstalk
   region: "eu-central-1"
   app: "multi-ci-test"
