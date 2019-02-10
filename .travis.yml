@@ -14,7 +14,7 @@ after_success:
  - docker build -t benbenek/multi-ci-server ./server
  - docker build -t benbenek/multi-ci-worker ./worker
  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
- - docker push benebenek/multi-ci-client
- - docker push benebenek/multi-ci-nginx
- - docker push benebenek/multi-ci-server
- - docker push benebenek/multi-ci-worker
+ - docker push benbenek/multi-ci-client
+ - docker push benbenek/multi-ci-nginx
+ - docker push benbenek/multi-ci-server
+ - docker push benbenek/multi-ci-worker
