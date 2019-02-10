@@ -21,11 +21,11 @@ after_success:
 
 deploy:
   provider: elasticbeanstalk
-  region: "eu-central-1"
-  app: "multi-ci-test"
-  env: "MultiCiTest-env"
-  bucket_name: "elasticbeanstalk-eu-central-1-832952669290"
-  bucket_path: "multi-ci-test"
+  region: eu-central-1
+  app: multi-ci-test
+  env: MultiCiTest-env
+  bucket_name: elasticbeanstalk-eu-central-1-832952669290
+  bucket_path: multi-ci-test
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
