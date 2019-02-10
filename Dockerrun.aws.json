@@ -25,6 +25,7 @@
         {
             "name": "nginx",
             "image": "benbenek/multi-ci-nginx",
+            "hostname": "nginx",
             "essential": true,
             "portMappings": [
                 {
